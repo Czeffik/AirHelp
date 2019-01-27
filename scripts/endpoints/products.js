@@ -11,7 +11,7 @@ export function products(jSessionId) {
 }
 
 export default function () {
-    group("log to shop and get products", function () {
+    group("log to shop as client and get products", function () {
         var client = "client";
         var password = "test";
         var jSessionId = getJSessionId(client, password);

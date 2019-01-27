@@ -13,14 +13,14 @@ export default function () {
     var iteration = __ITER;
 
     var client = virtualUser + baseUsername() + iteration;
-    group("user flow - creating account", function () {
+    group("client flow - creating account", function () {
         var response = createClient(client, client);
         statusIs200(response);
         addToTrend(response);
     });
 
     var userJSessionId = null;
-    group("user flow - user login to shop", function () {
+    group("client flow - client login to shop", function () {
         var response = accountLogin(client, client);
         statusIs200(response);
         userJSessionId = getJSessionIdFromResponse(response);
@@ -28,7 +28,7 @@ export default function () {
     });
 
     var createdOrderId = null;
-    group("user flow - user create order", function () {
+    group("client flow - client create order", function () {
         var response = createOrder(userJSessionId);
         statusIs200(response);
         createdOrderId = JSON.parse(response.body).id;

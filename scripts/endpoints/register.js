@@ -27,7 +27,7 @@ function createClientPayload(username, password) {
 }
 
 export default function () {
-    group("register", function () {
+    group("register new client", function () {
         var virtualUser = __VU;
         var iteration = __ITER;
         var client = virtualUser + baseUsername() + iteration;

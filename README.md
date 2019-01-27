@@ -32,6 +32,7 @@
     * `endpoints/register.js`
     * `endpoints/updateOrder.js`
 
+Example command for running test when image is build with alias: airhelp: `docker run --network host airhelp run endpoints/createOrder.js`
 ## Environmental variables
 When trying run tests with not default values then:
 `k6 run -e ENVIRONMENTAL_VARIABLE_NAME=enviromnentalVariableValue testScript.js`

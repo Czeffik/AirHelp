@@ -45,7 +45,7 @@ function createProductPayload(productsResponse) {
 }
 
 export default function () {
-    group("log to shop and create order", function () {
+    group("log to shop as client and create order", function () {
         var client = "client";
         var password = "test";
         var jSessionId = getJSessionId(client, password);

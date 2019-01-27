@@ -20,7 +20,7 @@ export function getJSessionIdFromResponse(loginResponse) {
 }
 
 export default function () {
-    group("login", function () {
+    group("login to shop as admin", function () {
         var response = accountLogin("admin", "test");
         statusIs200(response);
         addToTrend(response);

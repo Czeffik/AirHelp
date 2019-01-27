@@ -11,7 +11,7 @@ export function currentUser(jSessionId) {
 }
 
 export default function () {
-    group("log to shop and get current user", function () {
+    group("log to shop as client and get current user", function () {
         var client = "client";
         var password = "test";
         var jSessionId = getJSessionId(client, password);
