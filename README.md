@@ -14,7 +14,7 @@
 
 ### When ladybug server is up
 * open new command line
-* go to directory with project `cd C:\AirHelp`
+* go to directory with project example: `cd C:\AirHelp`
 * `docker build -t airhelp .`
 * `docker run --network host airhelp run ${testName.js}`
     ### Flow tests
@@ -32,9 +32,18 @@
 ## Environmental variables
 When trying run tests with not default values then:
 `k6 run -e ENVIRONMENTAL_VARIABLE_NAME=enviromnentalVariableValue testScript.js`
-also you can set it as global for your environment. For more information go [here](https://docs.k6.io/docs/environment-variables).
-* BASE_URL - server address, default: `http://localhost:8080/`
-* USER_LOGIN - is used to create new client, it is **required to change it** in every time when test will be started on old db, as default is randomly generated for every virtual user
+also you can set it as global for your environment. For more information go [here](https://docs.k6.io/docs/environment-variables). Here I described only variables which was added by me, but k6 has more default options,
+for example: `--vus 10` - set Virtual Users to 10, `--duration 30s`. For more information go [here](https://docs.k6.io/docs/options).
+* **BASE_URL** - server address, default: `http://localhost:8080/`
+* **USER_LOGIN** - is used to create new client, it is **required to change it** in every time when test will be started on old db, as default is randomly generated for every virtual user
+
+    ### Example commands with environmental variables
+    * `docker run --network host airhelp run -e BASE_URL=http://ladybug.server.address.com/ createOrderAndAccept.js`
+    * `docker run --network host airhelp run -e USER_LOGIN=clientLogin createOrderAndAccept.js`
+    * `docker run --network host airhelp run -e BASE_URL=http://ladybug.server.address.com/ -e USER_LOGIN=clientLogin createOrderAndAccept.js`
+    * `k6 run -e BASE_URL=http://ladybug.server.address.com/ USER_LOGIN=clientLogin createOrderAndAccept.js` - if you are not using docker.
+
+**Important!** When you are trying set **BASE_URL** remember that it must be ended with `/`
 
 ## Files
 
