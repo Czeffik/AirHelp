@@ -1,15 +1,18 @@
 import {Trend} from "k6/metrics";
 import {check, group, sleep} from "k6";
 
-export let options = {
-    vus: 1,
-    duration: '4s',
-    iterations: 1,
-    thresholds: {
-        transaction_time: ["avg<1000"], //todo pomysl o tym
-        http_req_duration: ["avg<4000"] //todo i tym
-    }
+/*
+    All parameters in options should be set related to service requirements.
+ */
 
+export let options = {
+    vus: 10,
+    duration: '4s',
+    iterations: 20,
+    thresholds: {
+        transaction_time: ["avg<1000"],
+        http_req_duration: ["avg<6000"]
+    }
 };
 
 export let trend = new Trend("transaction_time");

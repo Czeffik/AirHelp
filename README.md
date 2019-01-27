@@ -10,13 +10,16 @@
 * open command line
 * go to directory with app, for example: `cd C:\AirHelp\app`
 * `docker build -t app .`
+    * `-t app` for adding image alias
 * `docker run -p 8080:8080 app`
 
 ### When ladybug server is up
 * open new command line
 * go to directory with project example: `cd C:\AirHelp`
 * `docker build -t airhelp .`
-* `docker run --network host airhelp run ${testName.js}`
+    * `-t airhelp` for adding image alias
+* `docker run --network host airhelp run ${testName.js}` 
+    - *`--network host` is needed for resolve issue with `dial tcp 000.0.0.0:8080: connect: connection refused`*
     ### Flow tests
     * `createOrderAndAccept.js`
     #### Endpoint tests
@@ -33,7 +36,9 @@
 When trying run tests with not default values then:
 `k6 run -e ENVIRONMENTAL_VARIABLE_NAME=enviromnentalVariableValue testScript.js`
 also you can set it as global for your environment. For more information go [here](https://docs.k6.io/docs/environment-variables). Here I described only variables which was added by me, but k6 has more default options,
-for example: `--vus 10` - set Virtual Users to 10, `--duration 30s`. For more information go [here](https://docs.k6.io/docs/options).
+for example: `--vus 10` - set Virtual Users to 10, `--duration 30s`. For more information go [here](https://docs.k6.io/docs/options). 
+
+All default values are set in file `scripts/commons/common.js`.
 * **BASE_URL** - server address, default: `http://localhost:8080/`
 * **USER_LOGIN** - is used to create new client, it is **required to change it** in every time when test will be started on old db, as default is randomly generated for every virtual user
 
