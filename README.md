@@ -1,10 +1,10 @@
 # AirHelp
 
-##Requirements
+## Requirements
 * [Docker](https://www.docker.com/get-started)
 * [k6](https://docs.k6.io/docs/installation) - only if you are not using docker
 
-##How to start
+## How to start
 
 ### With ladybug server in container
 * open command line
@@ -17,9 +17,9 @@
 * go to directory with project `cd C:\AirHelp`
 * `docker build -t airhelp .`
 * `docker run --network host airhelp run ${testName.js}`
-    ###Flow tests
+    ### Flow tests
     * `createOrderAndAccept.js`
-    ####Endpoint tests
+    #### Endpoint tests
     * `endpoints/createOrder.js`
     * `endpoints/currentUser.js`
     * `endpoints/login.js`
